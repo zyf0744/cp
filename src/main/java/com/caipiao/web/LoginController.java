@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
-import com.caipiao.Service.UserService;
 import com.caipiao.dao.entity.UserEntity;
+import com.caipiao.service.UserService;
 
 @RestController
 @RequestMapping("/user")
