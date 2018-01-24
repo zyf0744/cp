@@ -10,8 +10,8 @@ public class GD11_5 {
 			
 			for(int ii = 0; ii<i.length;ii++) {
 				int n = rd.nextInt(11)+1;
-				if(i[ii]==n) {
-					
+				if(i[ii]!=n) {
+					i[ii]=n;
 				}
 			   }
 			System.out.println(i);

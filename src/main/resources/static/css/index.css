@@ -1,0 +1,25 @@
+button.btn.btn-default {
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px; 
+	margin-left : 10px;
+	height: 100px;
+	background-color: #da2727;
+	color: white;
+}
+
+div.btn-group {
+	background-color: #9e8d8d;
+}
+.btn-group>.btn:first-child {
+    margin-left: 10px;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}

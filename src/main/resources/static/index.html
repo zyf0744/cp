@@ -2,53 +2,81 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
 
-    <!-- 新 Bootstrap4 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+<!-- 新 Bootstrap4 核心 CSS 文件 -->
+<link rel="stylesheet"
+	href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../css/index.css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 
-    <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
-    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+<script
+	src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 
-    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<!-- <meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<script type="text/javascript">
+function showTime(){
+	$("#timer1").empty();
+	$("#timer2").empty();
+	var myDate = new Date();
+	var min = myDate.getMinutes();
+	var sec =  myDate.getSeconds();
+
+	var mm  = 9 - (min % 10);
+	var ss  = 60 - sec;
+
+	$("#timer1").append(mm);
+	$("#timer2").append(ss); 
+	
+	setInterval("showTime()", 1000);  
+}
+	 
+</script>
+
+
 </head>
 
-<body>
-    <div id="header">
+<body onload="showTime();">
+	<div class="container" style="background-color: #eee">
+		<div class="page-header">
+			<h2  style="padding-top: 10%;">距离下次开奖还有</h2>
+			<div style="font-size:40px;display:block;" class="clearfix"><p id="timer1" style="display:inline;"  ></p>分<p style="display:inline;" id="timer2"></p>秒</div>
+			<div style="padding-left: 40%;">
+				<button type="button" class="btn btn-danger">立即参与</button>
+			</div>
+			
+			<div  style="font-size:20px;color:blue;padding-top:20px;padding-left:20px">上期开奖结果： 01,02,03,04,05</div>
+		</div>
 
-    </div>
-
-    <div id="body">
-    
-            <div class="container">
-            
-              <p> 距离下次开奖还有5分1秒</p>
-           	 <p>立即购买</p>
-                    <ul>
-                    <li>开奖大厅</li>
-                    <li>合买</li>
-                    <li>购买记录</li>
-                    <li>积分充值</li>
-                    <li>提现</li>
-                    <li>设置</li>
-                    </ul>
-            </div>
-
-
-    </div>
-
-
-    <div id="footer">
-
-    </div>
-
-   
+		<div style="min-width: 400px;min-height: 500px;padding-left: 10%;padding-top: 10%;">
+			<div class="btn-group" role="group" aria-label="...">
+				<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>开奖大厅</button>
+				<button type="button" class="btn btn-default">参与合买</button>
+				<button type="button" class="btn btn-default">购买记录</button>
+			</div>
+			<div class="btn-group" role="group" aria-label="...">
+				<button type="button" class="btn btn-default">账户管理</button>
+				<button type="button" class="btn btn-default">积分充值</button>
+				<button type="button" class="btn btn-default">积分提现</button>
+			</div>
+			<div class="btn-group" role="group" aria-label="...">
+				<button type="button" class="btn btn-default">修改密码</button>
+				<button type="button" class="btn btn-default">系统设置</button>
+				<button type="button" class="btn btn-default">分享好友</button>
+			</div>
+		</div>
+	</div>
 
 </body>
 

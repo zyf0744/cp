@@ -1,6 +1,10 @@
 package com.caipiao.web;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,20 +18,26 @@ import com.caipiao.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class LoginController {
-
 	@Autowired
 	UserService userService;
-
+	
 	@PostMapping("/login")
-	public String login(HttpServletRequest request) {
+	public String login(HttpServletRequest request,HttpSession session,HttpServletResponse response) {
 		String userName = request.getParameter("name");
 		String pwd = request.getParameter("pwd");
 		UserEntity login = userService.login(userName, pwd);
 		if (login == null) {
-			return "null";
+			return "用户或者密码错误";
 		}
 		System.out.println(JSON.toJSONString(login));
-		return JSON.toJSONString(login);
+		session.setAttribute("user", userName);
+		session.setAttribute("user_data", login);
+		try {
+			response.sendRedirect("/index.html");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "ok";
 	}
 	
 	@PostMapping("/logout")
