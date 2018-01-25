@@ -34,6 +34,7 @@ public class GD11_5 implements Kind {
 			}
 			i[o] = n;
 		}
+		Arrays.sort(i);
 		return Arrays.toString(i);
 	}
 

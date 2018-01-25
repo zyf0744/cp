@@ -28,6 +28,15 @@
 <script type="text/javascript">
 $(function(){
 	setInterval("showTime()", 1000);
+	
+	  $.post("/getResult",function(data,status){
+		  console.log( data.result);
+		  $("#r").empty();
+		  
+		  $("#r").append(data.result);
+	        console.log("Data: " + data + "nStatus: " + status);
+	    });
+	
 });
 function showTime(){
 	$("#timer1").empty();
@@ -41,6 +50,11 @@ function showTime(){
 	$("#txt_mm").val(mm);
 	$("#timer2").append(ss); 
 	$("#txt_ss").val(ss);
+	
+	
+	if(mm == 0 && ss == 1){
+		console.log("请求一次");
+	}
 }
 	 
 </script>
@@ -54,10 +68,10 @@ function showTime(){
 			<h2  style="padding-top: 10%;">距离下次开奖还有</h2>
 			<div style="font-size:40px;display:block;" class="clearfix"><!-- <input type="text" id="txt_mm" style="display:inline;windth:20px"/> --> <p id="timer1" style="display:inline;"  ></p> 分<!--<input type="text" id="txt_ss" width="20px" style="display:inline;windth:20px"/>--> <p style="display:inline;" id="timer2"></p>秒</div>
 			<div style="padding-left: 40%;">
-				<button type="button" class="btn btn-danger">立即参与</button>
+				<button type="button" class="btn btn-danger" ><a href="/user/buy.html">立即参与</a></button>
 			</div>
 			
-			<div  style="font-size:20px;color:blue;padding-top:20px;padding-left:20px">上期开奖结果：<p id="r1" style="display:inline;"> 01</p>,<p id="r2" style="display:inline;"> 01</p>,<p id="r3" style="display:inline;"> 01</p>,<p id="r4" style="display:inline;"> 01</p>,<p id="r5" style="display:inline;"> 01</p></div>
+			<div  style="font-size:20px;color:blue;padding-top:20px;padding-left:20px">上期开奖结果：<p id="r" style="display:inline;">  </p> </div>
 		</div>
 
 		<div style="min-width: 400px;min-height: 500px;padding-left: 10%;padding-top: 10%;">

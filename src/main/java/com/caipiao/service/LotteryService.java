@@ -26,4 +26,8 @@ public class LotteryService {
 		lotteryRepo.save(l);
 
 	}
+	
+	public Object getResult(){
+		return lotteryRepo.findFirstByOrderByIdDesc();
+	}
 }
