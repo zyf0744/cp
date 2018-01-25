@@ -26,21 +26,21 @@
 
 
 <script type="text/javascript">
-
-
+$(function(){
+	setInterval("showTime()", 1000);
+});
 function showTime(){
 	$("#timer1").empty();
 	$("#timer2").empty();
 	var myDate = new Date();
 	var min = myDate.getMinutes();
 	var sec =  myDate.getSeconds();
-
 	var mm  = 9 - (min % 10);
 	var ss  = 60 - sec;
-
 	$("#timer1").append(mm);
+	$("#txt_mm").val(mm);
 	$("#timer2").append(ss); 
-	setInterval("showTime()", 1000);
+	$("#txt_ss").val(ss);
 }
 	 
 </script>
@@ -48,11 +48,11 @@ function showTime(){
 
 </head>
 
-<body onload="showTime();">
+<body>
 	<div class="container" style="background-color: #eee">
 		<div class="page-header">
 			<h2  style="padding-top: 10%;">距离下次开奖还有</h2>
-			<div style="font-size:40px;display:block;" class="clearfix"><p id="timer1" style="display:inline;"  ></p>分<p style="display:inline;" id="timer2"></p>秒</div>
+			<div style="font-size:40px;display:block;" class="clearfix"><!-- <input type="text" id="txt_mm" style="display:inline;windth:20px"/> --> <p id="timer1" style="display:inline;"  ></p> 分<!--<input type="text" id="txt_ss" width="20px" style="display:inline;windth:20px"/>--> <p style="display:inline;" id="timer2"></p>秒</div>
 			<div style="padding-left: 40%;">
 				<button type="button" class="btn btn-danger">立即参与</button>
 			</div>
@@ -73,7 +73,7 @@ function showTime(){
 			</div>
 			<div class="btn-group" role="group" aria-label="...">
 				<button type="button" class="btn btn-default">修改密码</button>
-				<button type="button" class="btn btn-default">系统设置</button>
+				<button type="button" class="btn btn-default">联系客服</button>
 				<button type="button" class="btn btn-default">分享好友</button>
 			</div>
 		</div>
