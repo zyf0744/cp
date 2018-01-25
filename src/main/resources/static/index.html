@@ -26,6 +26,8 @@
 
 
 <script type="text/javascript">
+
+
 function showTime(){
 	$("#timer1").empty();
 	$("#timer2").empty();
@@ -38,8 +40,7 @@ function showTime(){
 
 	$("#timer1").append(mm);
 	$("#timer2").append(ss); 
-	
-	setInterval("showTime()", 1000);  
+	setInterval("showTime()", 1000);
 }
 	 
 </script>
@@ -56,7 +57,7 @@ function showTime(){
 				<button type="button" class="btn btn-danger">立即参与</button>
 			</div>
 			
-			<div  style="font-size:20px;color:blue;padding-top:20px;padding-left:20px">上期开奖结果： 01,02,03,04,05</div>
+			<div  style="font-size:20px;color:blue;padding-top:20px;padding-left:20px">上期开奖结果：<p id="r1" style="display:inline;"> 01</p>,<p id="r2" style="display:inline;"> 01</p>,<p id="r3" style="display:inline;"> 01</p>,<p id="r4" style="display:inline;"> 01</p>,<p id="r5" style="display:inline;"> 01</p></div>
 		</div>
 
 		<div style="min-width: 400px;min-height: 500px;padding-left: 10%;padding-top: 10%;">
