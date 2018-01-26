@@ -2,6 +2,7 @@ package com.caipiao.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,7 @@ public class LotteryService {
 	@Transactional
 	public String order(Map<String, Object> param) {
 		long uid = Long.parseLong(param.get("uid").toString());
+		long lid = Long.parseLong(param.get("lid").toString());
 		UserEntity user = userRepo.findOne(uid);
 		int jifen = user.getJifen();
 		int hjje = Integer.parseInt(param.get("hjje").toString());
@@ -68,8 +70,8 @@ public class LotteryService {
 		if(Integer.parseInt(param.get("hjje").toString()) > jifen)
 		return "积分不足,请充值";
 		OrderDataEntity dataEntity =  new OrderDataEntity();
-		dataEntity.setLid(param.get("lid").toString());
-		dataEntity.setUid(param.get("uid").toString());
+		dataEntity.setLid(lid);
+		dataEntity.setUid(uid);
 		dataEntity.setDjje(Integer.parseInt(param.get("djje").toString()));
 		dataEntity.setZs(Integer.parseInt(param.get("zs").toString()));
 		dataEntity.setYhje(Integer.parseInt(param.get("yhje").toString()));
@@ -83,8 +85,8 @@ public class LotteryService {
 		return "购买成功";
 	}
 	
-	public Page<OrderDataEntity> queryList() {
+	public List<OrderDataEntity> queryList(long uid) {
 	    Pageable pageable = new PageRequest(1, 10);
-		return orderDataRepo.findByUid(pageable);
+		return orderDataRepo.findByUid(uid);
 	}
 }

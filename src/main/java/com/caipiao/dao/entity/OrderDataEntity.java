@@ -11,9 +11,9 @@ public class OrderDataEntity {
 	@Id
 	private long id;
 	@Column(name = "uid")
-	private String uid;
+	private long uid;
 	@Column(name = "lid")
-	private String lid;
+	private long lid;
 	@Column(name = "zjhm")
 	private String zjhm;
 	@Column(name = "djje")
@@ -30,16 +30,16 @@ public class OrderDataEntity {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getUid() {
+	public long getUid() {
 		return uid;
 	}
-	public void setUid(String uid) {
+	public void setUid(long uid) {
 		this.uid = uid;
 	}
-	public String getLid() {
+	public long getLid() {
 		return lid;
 	}
-	public void setLid(String lid) {
+	public void setLid(long lid) {
 		this.lid = lid;
 	}
 	public String getZjhm() {
@@ -72,6 +72,6 @@ public class OrderDataEntity {
 	public void setHjje(int hjje) {
 		this.hjje = hjje;
 	}
- 
-
+	 
+	
 }

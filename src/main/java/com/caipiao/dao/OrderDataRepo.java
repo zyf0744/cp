@@ -1,6 +1,7 @@
 package com.caipiao.dao;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.caipiao.dao.entity.OrderDataEntity;
@@ -11,5 +12,6 @@ import com.caipiao.dao.entity.OrderDataEntity;
  *
  */
 public interface OrderDataRepo extends PagingAndSortingRepository<OrderDataEntity, Long>{
-	Page<OrderDataEntity> findByUid(Pageable pageable);
+	@Query("SELECT l.lid,l.result,o.zjhm, ('no')status from lottery_data l,user u,order_data o where o.lid = l.id and o.uid = u.id and o.uid = ?")
+	List<OrderDataEntity> findByUid(long uid);
 }

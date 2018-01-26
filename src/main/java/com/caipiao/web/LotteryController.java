@@ -46,6 +46,7 @@ public class LotteryController {
 	@PostMapping("/getData")
 	public Object getData(HttpServletRequest request,ModelMap map){
 		Map<String,Object> param = WebUtils.getParametersStartingWith(request, null);
-		return lotteryService.queryList();
+		long uid =Long.parseLong(param.get("uid").toString());
+		return lotteryService.queryList(uid);
 	}
 }

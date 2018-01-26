@@ -20,7 +20,7 @@
 	<script type="text/javascript">
 	$(function(){
 		$("#submit").click(function(){
-			 $.post("/order",{lid:'201801261440',uid:'1',zjhm:'1,2,3,4,5',djje:2,zs:2,yhje:0,hjje:4 },function(data,status){
+			 $.post("/order",{lid:10,uid:1,zjhm:'1,2,3,4,5',djje:2,zs:2,yhje:0,hjje:4 },function(data,status){
 				  console.log( data);
 					 alert( data);
 			    });
