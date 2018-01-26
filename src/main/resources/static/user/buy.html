@@ -20,7 +20,7 @@
 	<script type="text/javascript">
 	$(function(){
 		$("#submit").click(function(){
-			 $.post("/order",{},function(data,status){
+			 $.post("/order",{lid:'201801261440',uid:'1', },function(data,status){
 				  console.log( data);
 			    });
 			});
