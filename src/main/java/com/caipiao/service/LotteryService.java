@@ -5,12 +5,18 @@ import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.caipiao.dao.LotteryRepo;
 import com.caipiao.dao.OrderDataRepo;
+import com.caipiao.dao.UserRepo;
 import com.caipiao.dao.entity.LotteryEntity;
 import com.caipiao.dao.entity.OrderDataEntity;
+import com.caipiao.dao.entity.UserEntity;
 import com.caipiao.kind.rule.GD11_5;
 
 /**
@@ -24,6 +30,11 @@ public class LotteryService {
 	LotteryRepo lotteryRepo;
 	@Autowired
 	OrderDataRepo orderDataRepo;
+	
+	@Autowired
+	UserRepo userRepo;
+	
+	
 	/**
 	 *  自动生成开将结果
 	 *  #前台设置
@@ -47,10 +58,33 @@ public class LotteryService {
 		return lotteryRepo.findFirstByOrderByIdDesc();
 	}
 	
-	public OrderDataEntity order(Map<String, Object> param) {
+	@Transactional
+	public String order(Map<String, Object> param) {
+		long uid = Long.parseLong(param.get("uid").toString());
+		UserEntity user = userRepo.findOne(uid);
+		int jifen = user.getJifen();
+		int hjje = Integer.parseInt(param.get("hjje").toString());
+		//订单金额大于积分（余额不足不能购买）
+		if(Integer.parseInt(param.get("hjje").toString()) > jifen)
+		return "积分不足,请充值";
 		OrderDataEntity dataEntity =  new OrderDataEntity();
-		dataEntity.setLid("");
-		dataEntity.setUid("");
-		return orderDataRepo.save(dataEntity);
+		dataEntity.setLid(param.get("lid").toString());
+		dataEntity.setUid(param.get("uid").toString());
+		dataEntity.setDjje(Integer.parseInt(param.get("djje").toString()));
+		dataEntity.setZs(Integer.parseInt(param.get("zs").toString()));
+		dataEntity.setYhje(Integer.parseInt(param.get("yhje").toString()));
+		dataEntity.setHjje(Integer.parseInt(param.get("hjje").toString()));
+		dataEntity.setZjhm(param.get("zjhm").toString());
+		//保存成功返回数据
+		OrderDataEntity orderData = orderDataRepo.save(dataEntity);
+		//扣除积分
+		user.setJifen(jifen-hjje);
+		userRepo.save(user);
+		return "购买成功";
+	}
+	
+	public Page<OrderDataEntity> queryList() {
+	    Pageable pageable = new PageRequest(1, 10);
+		return orderDataRepo.findByUid(pageable);
 	}
 }

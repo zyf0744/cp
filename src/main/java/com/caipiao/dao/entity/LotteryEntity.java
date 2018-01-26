@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="lottery_data")
 public class LotteryEntity {
 	@Id
-	private int id;
+	private long id;
 	
 	@Column(name="lid")
 	private String lid;
@@ -22,11 +22,11 @@ public class LotteryEntity {
 	@Column(name="result")
 	private String result;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -46,10 +46,7 @@ public class LotteryEntity {
 		this.result = result;
 	}
 
-	public LotteryEntity() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	 
 
 	
 	

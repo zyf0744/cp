@@ -40,8 +40,12 @@ public class LotteryController {
 	@PostMapping("/order")
 	public Object order(HttpServletRequest request,ModelMap map){
 		Map<String,Object> param = WebUtils.getParametersStartingWith(request, null);
-		
-		
 		return lotteryService.order(param);
+	}
+	
+	@PostMapping("/getData")
+	public Object getData(HttpServletRequest request,ModelMap map){
+		Map<String,Object> param = WebUtils.getParametersStartingWith(request, null);
+		return lotteryService.queryList();
 	}
 }

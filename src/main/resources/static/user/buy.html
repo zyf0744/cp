@@ -20,10 +20,15 @@
 	<script type="text/javascript">
 	$(function(){
 		$("#submit").click(function(){
-			 $.post("/order",{lid:'201801261440',uid:'1', },function(data,status){
+			 $.post("/order",{lid:'201801261440',uid:'1',zjhm:'1,2,3,4,5',djje:2,zs:2,yhje:0,hjje:4 },function(data,status){
 				  console.log( data);
+					 alert( data);
 			    });
-			});
+		});
+		
+		$("#reset").click(function(){
+			 $("input").attr("checked",false);
+		});
 	});
 	
 	</script>
@@ -32,82 +37,82 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="1"> <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span> 01
 					</label>
 				</div>
 			</div>
 
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="2" checked> <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span> 02
 					</label>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="3"> <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span> 03
 					</label>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="4" > <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span> 04
 					</label>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="5" checked> <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span> 05
 					</label>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="6" checked> <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span> 06
 					</label>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="7" checked> <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span> 07
 					</label>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="8" > <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span> 08
 					</label>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="9" > <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span> 09
 					</label>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="10" > <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span>10
 					</label>
@@ -115,15 +120,16 @@
 			</div>
 				<div class="col-xs-6">
 				<div class="checkbox">
-					<label style="font-size: 2.5em"> <input type="checkbox"
+					<label style="font-size: 2.0em"> <input type="checkbox"
 						value="11" checked> <span class="cr"><i
 							class="cr-icon fa fa-check"></i></span>11
 					</label>
 				</div>
 			</div>
 		</div>
-		
-		<button type="button" class="btn btn-primary btn-lg" id="submit">提交</button>
+		<button type="button" class="btn btn-primary btn-lg" id="random">随机生成</button>
+		<button type="button" class="btn btn-primary btn-lg" id="reset">&nbsp;&nbsp;&nbsp;&nbsp;重置&nbsp;&nbsp;&nbsp;&nbsp;</button>
+		<button type="button" class="btn btn-danger btn-lg" id="submit">&nbsp;&nbsp;&nbsp;&nbsp;投注&nbsp;&nbsp;&nbsp;&nbsp;</button>
 	</div>
 
 </body>
