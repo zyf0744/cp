@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 开奖表 实体
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name="lottery_data")
 public class LotteryEntity {

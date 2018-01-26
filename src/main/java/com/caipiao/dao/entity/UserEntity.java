@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 用户表实体
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name="user")
 public class UserEntity {

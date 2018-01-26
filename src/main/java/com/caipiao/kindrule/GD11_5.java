@@ -1,4 +1,4 @@
-package com.caipiao.kind;
+package com.caipiao.kindrule;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 
