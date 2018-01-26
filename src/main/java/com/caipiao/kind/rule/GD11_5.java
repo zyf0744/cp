@@ -1,19 +1,21 @@
 package com.caipiao.kind.rule;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
-
 import java.util.Arrays;
 
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.caipiao.kind.Kind;
 
+/**
+ * 广东11选5生成规则类
+ * @author Administrator
+ *
+ */
 public class GD11_5 implements Kind {
+	
 	public static void main(String[] args) {
-		// int[] num = new int[] {1,2,3,4,5,6,7,8,9,10,11};
 		java.util.Random rd = new java.util.Random();
 		int[] i = new int[5];
-
 		for (int o = 0; o < i.length; o++) {
 			int n = rd.nextInt(11) + 1;
 			while (ArrayUtils.contains(i, n)) {
@@ -22,9 +24,12 @@ public class GD11_5 implements Kind {
 			i[o] = n;
 		}
 		System.out.println(Arrays.toString(i));
-
 	}
 
+	/*
+	 * 返回结果
+	 * @see com.caipiao.kind.Kind#getResult()
+	 */
 	public String getResult() {
 		java.util.Random rd = new java.util.Random();
 		int[] i = new int[5];
@@ -36,8 +41,8 @@ public class GD11_5 implements Kind {
 			}
 			i[o] = n;
 		}
-		Arrays.sort(i);
-		return Arrays.toString(i);
+		Arrays.sort(i); //排序
+		return Arrays.toString(i);//转成字符串
 	}
 
 	public static String get() {
