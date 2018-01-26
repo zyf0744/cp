@@ -1,10 +1,12 @@
-package com.caipiao.kindrule;
+package com.caipiao.kind.rule;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 
 import java.util.Arrays;
 
 import org.apache.commons.lang3.ArrayUtils;
+
+import com.caipiao.kind.Kind;
 
 public class GD11_5 implements Kind {
 	public static void main(String[] args) {

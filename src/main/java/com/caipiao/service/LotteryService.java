@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.caipiao.dao.LotteryRepo;
 import com.caipiao.dao.entity.LotteryEntity;
-import com.caipiao.kindrule.GD11_5;
+import com.caipiao.kind.rule.GD11_5;
 
 /**
  * 彩票开奖结果服务类

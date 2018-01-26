@@ -1,4 +1,4 @@
-package com.caipiao.kindrule;
+package com.caipiao.kind;
 
 public interface Kind {
 	public  String getResult();
