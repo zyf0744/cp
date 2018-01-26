@@ -2,12 +2,15 @@ package com.caipiao.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.caipiao.dao.LotteryRepo;
+import com.caipiao.dao.OrderDataRepo;
 import com.caipiao.dao.entity.LotteryEntity;
+import com.caipiao.dao.entity.OrderDataEntity;
 import com.caipiao.kind.rule.GD11_5;
 
 /**
@@ -19,8 +22,8 @@ import com.caipiao.kind.rule.GD11_5;
 public class LotteryService {
 	@Autowired
 	LotteryRepo lotteryRepo;
-
-	
+	@Autowired
+	OrderDataRepo orderDataRepo;
 	/**
 	 *  自动生成开将结果
 	 *  #前台设置
@@ -42,5 +45,12 @@ public class LotteryService {
 	
 	public Object getResult(){
 		return lotteryRepo.findFirstByOrderByIdDesc();
+	}
+	
+	public OrderDataEntity order(Map<String, Object> param) {
+		OrderDataEntity dataEntity =  new OrderDataEntity();
+		dataEntity.setLid("");
+		dataEntity.setUid("");
+		return orderDataRepo.save(dataEntity);
 	}
 }
