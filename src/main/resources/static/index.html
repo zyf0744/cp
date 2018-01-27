@@ -32,9 +32,8 @@ $(function(){
 	  $.post("/getResult",function(data,status){
 		  console.log( data.result);
 		  $("#r").empty();
-		  
 		  $("#r").append(data.result);
-	        console.log("Data: " + data + "nStatus: " + status);
+	      console.log("Data: " + data + "nStatus: " + status);
 	    });
 	
 });
@@ -82,7 +81,7 @@ function showTime(){
 			</div>
 			<div class="btn-group" role="group" aria-label="...">
 				<button type="button" class="btn btn-default">账户管理</button>
-				<button type="button" class="btn btn-default">积分充值</button>
+				<button type="button" class="btn btn-default">积分兑换</button>
 				<button type="button" class="btn btn-default">积分提现</button>
 			</div>
 			<div class="btn-group" role="group" aria-label="...">
