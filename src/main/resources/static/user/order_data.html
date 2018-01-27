@@ -19,22 +19,29 @@
 
 
 <script type="text/javascript">
-	$(function(){
-			 $.post("/getData",{uid:1},function(data,status){
-				  console.log( data);
-					// alert( data);
-					 
-					   $.each(data,function(idx,item){  
-						   $("#data tbody").append("<tr>"+"<td>"+item.uid+"</td><td>"+item.zjhm+"</td></tr>");
-					   });
-			    });
+	$(function() {
+		$.post("/getData", {
+			uid : 1
+		}, function(data, status) {
+			console.log(data);
+			$.each(data, function(idx, item) {
+				$("#data tbody").append(
+						"<tr>" + "<td>" + item.lid + "</td><td>" + item.result
+								+ "</td><td>" + item.zjhm + "</td><td>"
+								+ item.status + "</td></tr>");
+			});
+		});
 	});
 	
-	</script>
+	function back(){window.history.go(-1);}
+</script>
 
 </head>
 <body>
 	<div class="container">
+		<div class="header">
+			<a href="/index.html">主页</a> <a href="#" onclick="back();"> 返回上一页</a>
+		</div>
 		<table class="table" id="data">
 			<thead>
 				<tr>

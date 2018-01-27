@@ -85,8 +85,8 @@ public class LotteryService {
 		return "购买成功";
 	}
 	
-	public List<OrderDataEntity> queryList(long uid) {
-	    Pageable pageable = new PageRequest(1, 10);
+	public List<Map<String,Object>> queryList(long uid) {
+	    //Pageable pageable = new PageRequest(1, 10);
 		return orderDataRepo.findByUid(uid);
 	}
 }
