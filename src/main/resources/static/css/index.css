@@ -1,8 +1,8 @@
 button.btn.btn-default {
 	margin-right: 10px;
 	margin-top: 5px;
-	margin-bottom: 5px; 
-	margin-left : 10px;
+	margin-bottom: 5px;
+	margin-left: 10px;
 	height: 100px;
 	background-color: #da2727;
 	color: white;
@@ -11,19 +11,39 @@ button.btn.btn-default {
 div.btn-group {
 	background-color: #9e8d8d;
 }
+
 .btn-group>.btn:first-child {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
 .clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
 }
 
-.clearfix:before,.clearfix:after{ content:" "; display:block; height:0; visibility:hidden; clear:both; overflow:hidden;}
-.clearfix{zoom:1;}
+.clearfix:before, .clearfix:after {
+	content: " ";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+	overflow: hidden;
+}
 
+.clearfix {
+	zoom: 1;
+}
+
+td {
+	border-color: #eee;
+	border-width: 2px;
+	border-style: solid;
+	border-top-width: 5px;
+	border-right-width: 5px;
+	border-bottom-width: 5px;
+	border-left-width: 5px;
+}
