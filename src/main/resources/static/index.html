@@ -21,98 +21,130 @@
 <!-- <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	 -->
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=yes"> -->
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0 ,shrink-to-fit=no" name="viewport" />
-<link rel="stylesheet"
-	href="../css/index.css">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=yes"> -->
+<meta
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0 ,shrink-to-fit=no"
+	name="viewport" />
+<link rel="stylesheet" href="../css/index.css">
 <script type="text/javascript">
-$(function(){
-	setInterval("showTime()", 1000);
-	
-	  $.post("/getResult",function(data,status){
-		  console.log( data.result);
-		  $("#r").empty();
-		  $("#r").append(data.result);
-	      console.log("Data: " + data + "nStatus: " + status);
-	    });
-	
-});
-function showTime(){
-	$("#timer1").empty();
-	$("#timer2").empty();
-	var myDate = new Date();
-	var min = myDate.getMinutes();
-	var sec =  myDate.getSeconds();
-	var mm  = 9 - (min % 10);
-	var ss  = 60 - sec;
-	$("#timer1").append(mm);
-	$("#txt_mm").val(mm);
-	$("#timer2").append(ss); 
-	$("#txt_ss").val(ss);
-	
-	
-	if(mm == 0 && ss == 1){
-		console.log("请求一次");
+	$(function() {
+		setInterval("showTime()", 1000);
+
+		$.post("/getResult", function(data, status) {
+			console.log(data.result);
+			$("#r").empty();
+			$("#r").append(data.result);
+			console.log("Data: " + data + "nStatus: " + status);
+		});
+
+	});
+	function showTime() {
+		$("#timer1").empty();
+		$("#timer2").empty();
+		var myDate = new Date();
+		var min = myDate.getMinutes();
+		var sec = myDate.getSeconds();
+		var mm = 9 - (min % 10);
+		var ss = 60 - sec;
+		$("#timer1").append(mm);
+		$("#txt_mm").val(mm);
+		$("#timer2").append(ss);
+		$("#txt_ss").val(ss);
+
+		if (mm == 0 && ss == 1) {
+			console.log("请求一次");
+		}
 	}
-}
-	 
 </script>
 
 
 </head>
 
 <body>
-<div class="container-fluid">
-	<div class="row">
-		<div class="span12">
-		<img src="images/广告@2x.png" width="100%"/>
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span12">
-		  <div class="clearfix">距离开奖倒计时还有</div>
-		  
-		  	<div style="font-size:40px;display:block;" class="clearfix"><!-- <input type="text" id="txt_mm" style="display:inline;windth:20px"/> --> <p id="timer1" style="display:inline;"  ></p> 分<!--<input type="text" id="txt_ss" width="20px" style="display:inline;windth:20px"/>--> <p style="display:inline;" id="timer2"></p>秒</div>
-			<div style="padding-left: 40%;">
-				<button type="button" class="btn btn-danger" ><a href="/user/buy.html">立即参与</a></button>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="span12">
+				<img src="images/广告@2x.png" width="100%" />
 			</div>
 		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span12">
-		</div>
-	</div>
-</div>
-----------
-	<div class="container" style="background-color: #eee">
-		<div class="page-header">
-			<h2  style="padding-top: 10%;">距离下次开奖还有</h2>
-			<div style="font-size:40px;display:block;" class="clearfix"><!-- <input type="text" id="txt_mm" style="display:inline;windth:20px"/> --> <p id="timer1" style="display:inline;"  ></p> 分<!--<input type="text" id="txt_ss" width="20px" style="display:inline;windth:20px"/>--> <p style="display:inline;" id="timer2"></p>秒</div>
-			<div style="padding-left: 40%;">
-				<button type="button" class="btn btn-danger" ><a href="/user/buy.html">立即参与</a></button>
-			</div>
-			
-			<div  style="font-size:20px;color:blue;padding-top:20px;padding-left:20px">上期开奖结果：<p id="r" style="display:inline;">  </p> </div>
+		<div class="row-fluid">
+			<table style="width: 100%">
+				<tr>
+					<td style="width: 30%; text-align: center;">距离开奖<br />倒计时
+					</td>
+					<td style="width: 30%; text-align: center;">
+						<p id="timer1" style="display: inline;"></p> 分<!--<input type="text" id="txt_ss" width="20px" style="display:inline;windth:20px"/>-->
+						<p style="display: inline;" id="timer2"></p>秒
+					</td>
+					<td style="width: 40%; text-align: center;"><button
+							type="button" class="btn btn-danger">
+							<a href="/user/buy.html">立即参与</a>
+						</button></td>
+				</tr>
+			</table>
+
 		</div>
 
-		<div style="min-width: 400px;min-height: 500px;padding-left: 10%;padding-top: 10%;">
-			<div class="btn-group" role="group" aria-label="...">
-				<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>开奖大厅</button>
-				<button type="button" class="btn btn-default">参与合买</button>
-				<button type="button" class="btn btn-default"><a href="/user/order_data.html">购买记录</a></button>
+		<div class="container" style="background-color: #eee">
+			<div
+				style="font-size: 20px; color: blue; padding-top: 20px; padding-left: 20px">
+				上期开奖结果：
+				<p id="r" style="display: inline;"></p>
 			</div>
-			<div class="btn-group" role="group" aria-label="...">
-				<button type="button" class="btn btn-default">账户管理</button>
-				<button type="button" class="btn btn-default">积分兑换</button>
-				<button type="button" class="btn btn-default">积分提现</button>
-			</div>
-			<div class="btn-group" role="group" aria-label="...">
-				<button type="button" class="btn btn-default">修改密码</button>
-				<button type="button" class="btn btn-default">联系客服</button>
-				<button type="button" class="btn btn-default">分享好友</button>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<table style="width: 100%;text-align: center;border-color: #eee;border: 1px;">
+					<tr>
+						<td><div style="height: 150px;vertical-align: middle;padding-top: 30px;border: 1px;"><img alt="" src="../images/开奖大厅.png"/><p>开奖大厅</p></div></td>
+						<td><div style="height: 150px;vertical-align: middle;padding-top: 30px;"><img alt="" src="../images/参与合买.png"/><p>参与合买</p></div></td>
+						<td><div style="height: 150px;vertical-align: middle;padding-top: 30px;"><a href="/user/order_data.html"><img alt="" src="../images/购买记录.png"><p>购买记录</p></a></div></td>
+					</tr>
+					<tr>
+						<td><div style="height: 150px;vertical-align: middle;padding-top: 30px;"><img alt="" src="../images/账户管理.png"><p>账户管理</p></div></td>
+						<td><div style="height: 150px;vertical-align: middle;padding-top: 30px;"><img alt="" src="../images/积分充值.png"><p>积分充值</p></div></td>
+						<td><div style="height: 150px;vertical-align: middle;padding-top: 30px;"><img alt="" src="../images/积分提现.png"><p>积分兑换</p></div></td>
+					</tr>
+					<tr>
+						<td><div style="height: 150px;vertical-align: middle;padding-top: 30px;"><img alt="" src="../images/修改密码.png"><p>修改密码</p></div></td>
+						<td><div style="height: 150px;vertical-align: middle;padding-top: 30px;"><img alt="" src="../images/联系客服.png"><p>联系客服</p></div></td>
+						<td><div style="height: 150px;vertical-align: middle;padding-top: 30px;"><img alt="" src="../images/分享好友.png"><p>分享好友</p></div></td>
+					</tr>
+
+				</table>
 			</div>
 		</div>
 	</div>
+	<!-- <div class="container" style="background-color: #eee">
+		<div
+			style="font-size: 20px; color: blue; padding-top: 20px; padding-left: 20px">
+			上期开奖结果：
+			<p id="r" style="display: inline;"></p>
+		</div>
+	</div>
+	<div
+		style="min-width: 400px; min-height: 500px; padding-left: 10%; padding-top: 10%;">
+		<div class="btn-group" role="group" aria-label="...">
+			<button type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>开奖大厅
+			</button>
+			<button type="button" class="btn btn-default">参与合买</button>
+			<button type="button" class="btn btn-default">
+				<a href="/user/order_data.html">购买记录</a>
+			</button>
+		</div>
+		<div class="btn-group" role="group" aria-label="...">
+			<button type="button" class="btn btn-default">账户管理</button>
+			<button type="button" class="btn btn-default">积分兑换</button>
+			<button type="button" class="btn btn-default">积分提现</button>
+		</div>
+		<div class="btn-group" role="group" aria-label="...">
+			<button type="button" class="btn btn-default">修改密码</button>
+			<button type="button" class="btn btn-default">联系客服</button>
+			<button type="button" class="btn btn-default">分享好友</button>
+		</div>
+	</div>
+	</div> -->
 
 </body>
 
