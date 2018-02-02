@@ -38,7 +38,7 @@ div.btn-group {
 	zoom: 1;
 }
 
-td {
+#menu td {
 	border-color: #eee;
 	border-width: 2px;
 	border-style: solid;
@@ -46,4 +46,13 @@ td {
 	border-right-width: 5px;
 	border-bottom-width: 5px;
 	border-left-width: 5px;
+}
+button a{
+	color: white;
+}
+.num{
+	background-color: red;width:30px;text-align: center;border-radius:50px;display: inline-block;color: white;margin-left: 5px;
+}
+#kj{
+	width: 100%;
 }

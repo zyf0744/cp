@@ -32,11 +32,11 @@ public class LoginController {
 		System.out.println(JSON.toJSONString(login));
 		session.setAttribute("user", userName);
 		session.setAttribute("user_data", login);
-		try {
+		/*try {
 			response.sendRedirect("/index.html");
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 		return "ok";
 	}
 	
